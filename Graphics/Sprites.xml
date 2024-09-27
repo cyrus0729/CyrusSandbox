@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Sprites>
+    <needleEntity path="objects/CyrusSandbox/needleEntity/" start="needle">
+        <Justify x="0.5" y="0.5"/>
+        <Loop id="needle" path="needle" delay="0.1" frames="0" />
+    </needleEntity>
+
+    <miniNeedleEntity path="objects/CyrusSandbox/needleEntity/" start="mini">
+        <Justify x="0.5" y="0.5"/>
+        <Loop id="mini" path="mini" delay="0.1" frames="0" />
+    </miniNeedleEntity>
+
+    <cherryEntity path="objects/CyrusSandbox/cherryEntity/" start="idle">
+        <Justify x="0.5" y="0.5"/>
+        <Loop id="idle" path="idle" delay="0.5" frames="0-1" />
+    </cherryEntity>
+
+    <cherryEntityBig path="objects/CyrusSandbox/cherryEntityBig/" start="idle">
+        <Justify x="0.5" y="0.5"/>
+        <Loop id="idle" path="idle" delay="0.5" frames="0-1" />
+    </cherryEntityBig>
+
+    <DeathcubeEntity path="objects/CyrusSandbox/DeathcubeEntity/" start="idle">
+	 <Justify x="0.5" y="0.5"/>	
+	 <Loop id="idle" path="idle" delay="0.1" frames="0" />
+    </DeathcubeEntity>
+
+    <InteractiveEntity path="characters/CyrusSandbox/InteractiveEntity/" start="sunnyIdle">
+	<Origin x="8" y="16"/>
+	<Loop id="sunnyIdle" path="sunny/idle" delay="0.5" frames="0-4" />
+	<Loop id="sunnyPetting" path="sunny/pet" delay="0.25" frames="0-10" />
+	<Loop id="birdIdle" path="bird/crow" delay="0" frames="0-47" />
+	<Loop id="birdPetting" path="bird/pet" delay="0.25" frames="0-10" />
+    </InteractiveEntity>
+
+    <PlayerInteract path="characters/CyrusSandbox/InteractiveEntity/" start="plrPetting"> 
+	<Origin x="22" y="24"/>
+	<Loop id="plrPetting" path="playerAnims/petting" delay="0.25" frames="0-10"/>
+    </PlayerInteract>
+
+</Sprites>

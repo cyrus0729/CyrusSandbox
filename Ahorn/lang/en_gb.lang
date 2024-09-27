@@ -1,0 +1,5 @@
+# Sample Entity
+placements.entities.CyrusHelper/SampleEntity.tooltips.sampleProperty=A sample property for your entity.
+
+# Sample Trigger
+placements.triggers.CyrusHelper/SampleTrigger.tooltips.sampleProperty=A sample property for your trigger.

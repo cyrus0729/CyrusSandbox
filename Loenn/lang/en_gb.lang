@@ -1,0 +1,13 @@
+# Sample Entity
+entities.CyrusHelper/SampleEntity.placements.name.normal=Sample Entity
+entities.CyrusHelper/SampleEntity.attributes.description.sampleProperty=A sample property for your entity.
+entities.CyrusHelper/NeedleEntity.placements.name.normal=IWBTG Needle
+entities.CyrusHelper/NeedleEntity.attributes.description.direction=What direction its facing.
+
+entities.CyrusHelper/HitboxController.attributes.description.advancedMode=Enables offset to be used.
+
+# Sample Trigger
+triggers.CyrusHelper/SampleTrigger.placements.name.normal=Sample Trigger
+triggers.CyrusHelper/SampleTrigger.attributes.description.sampleProperty=A sample property for your trigger.
+
+mods.CyrusHelper.name=Cyrus/Aletris Helper
