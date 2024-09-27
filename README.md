@@ -1,3 +1,2 @@
 # CyrusHelper
-Replace with your mod's readme!
-no :)
+why is this cyrushelper???
