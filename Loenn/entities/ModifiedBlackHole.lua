@@ -24,7 +24,7 @@ blackhole.placements = {
     }
 }
 
-blackhole.texture = "AletrisSandbox/ModifiedBlackHole/LoennPreview"
+blackhole.texture = "objects/AletrisSandbox/ModifiedBlackHole/LoennPreview"
 
 function blackhole.selection(room, entity)
     return utils.rectangle(entity.x - 15, entity.y - 15, 30, 30)

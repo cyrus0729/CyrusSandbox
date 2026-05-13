@@ -39,14 +39,14 @@
 		<Loop id="plrPetting" path="playerAnims/petting" delay="0.25" frames="0-10"/>
     </PlayerInteract>
 	
-	<BlackHole path="AletrisSandbox/ModifiedBlackHole/" start="Blackhole"> 
+	<BlackHole path="AletrisSandbox/ModifiedBlackHole/" start="idle"> 
 		<Origin x="-0.5" y="-0.5"/>
-		<Loop id="Blackhole" path="Blackhole" delay="0.1"/>
+		<Loop id="idle" path="Blackhole" delay="0.1" frames="0-3"/>
     </BlackHole>
 	
-	<BHAura path="AletrisSandbox/ModifiedBlackHole/" start="Aura"> 
+	<BHAura path="AletrisSandbox/ModifiedBlackHole/" start="idle"> 
 		<Origin x="-0.5" y="-0.5"/>
-		<Loop id="Aura" path="Aura" delay="0.1"/>
+		<Loop id="idle" path="Aura" delay="0.1" frames="0-3"/>
     </BHAura>
 	
 	<MouseController path="objects/AletrisSandbox/MouseController/" start="-"> 

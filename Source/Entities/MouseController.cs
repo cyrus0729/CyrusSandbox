@@ -47,7 +47,7 @@ public class MouseController : Entity
         base.Update();
 
         AletrisSandboxModule.Session.mouseControlsState[1] = forced;
-        //MInput.Disabled = !AletrisSandboxModule.Session.mouseControlsState[1];
+        MInput.Disabled = !AletrisSandboxModule.Session.mouseControlsState[1];
         // not forced and not enabled and isn't paused
         if (!AletrisSandboxModule.Session.mouseControlsState[1] && !AletrisSandboxModule.Session.mouseControlsState[0])
         {
@@ -60,7 +60,6 @@ public class MouseController : Entity
             Binds.Grab.Release();
             return;
         }
-
         var State = Mouse.GetState();
         var MouseCursorPos = Vector2.Transform(new(State.X, State.Y), Matrix.Invert(Engine.ScreenMatrix));
         var player = SceneAs<Level>().Tracker.GetEntity<Player>();
