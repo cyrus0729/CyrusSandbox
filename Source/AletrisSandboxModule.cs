@@ -128,14 +128,7 @@ public class AletrisSandboxModule : EverestModule
     {
         orig(self);
 
-        if (Settings.PauseMouseControls.Pressed) // toggle mouse controls
-        {
-            Session.mouseControlsState[0] = !Session.mouseControlsState[0];
-        }
-
-        if (Settings.IWBTOptions.IWBTGGunAimOverride || Session.IWBTGGunMouseAimEnabled) { return;} // if iwbtg mouse aim is enabled, keep drawing
-        if (!Session.mouseControlsState[1]) { return; }
-        if (!Session.mouseControlsState[0]) { return; }
+        if (!Settings.IWBTOptions.IWBTGGunAimOverride || !Session.IWBTGGunMouseAimEnabled) { return;} // if iwbtg mouse aim is enabled, keep drawing
 
         Draw.SpriteBatch.Begin(0, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullNone, null, Engine.ScreenMatrix);
 
@@ -277,7 +270,6 @@ public class AletrisSandboxModule : EverestModule
     static void HPLevelUpdate(On.Celeste.Level.orig_Update orig, Level self)
     {
         orig(self);
-
         if (!(Settings.HealthOptions.HPSystemEnableOverride || Session.HPSystemEnabled))
             return;
 
@@ -360,6 +352,36 @@ public class AletrisSandboxModule : EverestModule
         orig(self);
     }
 
+    public static void OnPlrDie(Player player) // dumb dumb stupid dumb idiot
+    {
+        Logger.Verbose(nameof(AletrisSandboxModule), "calling onPlrDie..");
+
+        AvoidanceController ac = player.SceneAs<Level>().Tracker.GetEntity<AvoidanceController>();
+
+        if (ac != null)
+        {
+            try
+            {
+                var fn = ac.lua["onPlrDie"] as LuaFunction;
+
+                if (fn == null)
+                {
+                    Logger.Verbose(nameof(AletrisSandboxModule), "function onPlrDie does not exist, you could add one!");
+
+                    return;
+                }
+                fn!.Call(ac.timer);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(nameof(AletrisSandboxModule), ex.Message);
+                Logger.Verbose(nameof(AletrisSandboxModule), ex.StackTrace);
+                Logger.Verbose(nameof(AletrisSandboxModule), ex.InnerException?.ToString());
+                ac.RemoveSelf();
+            }
+        }
+    }
+
     // somebody tell me how the FUCK do I add a lib reference again
 
 	private static void ResetInput()
@@ -422,6 +444,7 @@ public class AletrisSandboxModule : EverestModule
         On.Celeste.Player.NormalUpdate += Player_IWBTJumpUpdate;
         On.Celeste.Player.Update += UnholdableBarrier_Player_Update;
         On.Celeste.Player.Update += MouseControllerCheck;
+        Everest.Events.Player.OnDie += OnPlrDie;
 
         // TODO: apply any hooks that should always be active
     }
@@ -438,6 +461,7 @@ public class AletrisSandboxModule : EverestModule
         On.Celeste.Player.NormalUpdate -= Player_IWBTJumpUpdate;
         On.Celeste.Player.Update -= UnholdableBarrier_Player_Update;
         On.Celeste.Player.Update -= MouseControllerCheck;
+        Everest.Events.Player.OnDie -= OnPlrDie;
 
         // TODO: unapply any hooks applied in Load()
     }

@@ -92,9 +92,9 @@ public class CustomCursedMovingSolidThingy : Solid
             if (player == null)
                 return;
 
-            Draw.Line(player.Center,f,Color.Green);
+            /*Draw.Line(player.Center,f,Color.Green);
             Draw.Line(player.Center, b, Color.Blue);
-            Draw.Line(player.Center, d, Color.Red);
+            Draw.Line(player.Center, d, Color.Red);*/
 
             while (render != null)
             {

@@ -46,10 +46,7 @@ public class MouseController : Entity
     {
         base.Update();
 
-        AletrisSandboxModule.Session.mouseControlsState[1] = forced;
-        MInput.Disabled = !AletrisSandboxModule.Session.mouseControlsState[1];
-        // not forced and not enabled and isn't paused
-        if (!AletrisSandboxModule.Session.mouseControlsState[1] && !AletrisSandboxModule.Session.mouseControlsState[0])
+        if (AletrisSandboxModule.Session.mouseControlsState)
         {
             Binds.MoveX.SetValue(0);
             Binds.MoveY.SetValue(0);

@@ -42,7 +42,7 @@ public sealed class ModifiedLuaBadelineBoss : FinalBoss
             orig(self);
             return;
         }
-
+it
         luaBoss.CreateCustomBossSprite();
     }
 

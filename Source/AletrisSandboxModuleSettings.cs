@@ -9,15 +9,12 @@ public class AletrisSandboxModuleSettings : EverestModuleSettings
     public IWBTGMenu IWBTOptions { get; set; } = new();
     public HealthMenu HealthOptions { get; set; } = new();
     public HitboxMenu HitboxOptions { get; set; } = new();
-    public HitboxMenu.HitboxSizeMenu HitboxSizeOptions { get; set; } = new();
-    public HitboxMenu.HitboxOffsetMenu HitboxOffsetOptions { get; set; } = new();
+    public HitboxSizeMenu HitboxSizeOptions { get; set; } = new();
+    public HitboxOffsetMenu HitboxOffsetOptions { get; set; } = new();
     public MiscMenu MiscelleaneousMenu { get; set; } = new();
 
     [DefaultButtonBinding(button: Buttons.Y, key: Keys.C)]
     public ButtonBinding BulletFirekey { get; set; }
-
-    [DefaultButtonBinding(button:Buttons.Start,key:Keys.M)]
-    public ButtonBinding PauseMouseControls { get; set; }
 
     [SettingSubMenu]
     public class IWBTGMenu

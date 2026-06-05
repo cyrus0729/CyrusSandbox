@@ -1,12 +1,12 @@
-using System;
-using System.Linq;
-
 namespace Celeste.Mod.AletrisSandbox;
 
 using Microsoft.Xna.Framework;
 using Monocle;
+using System;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using System.IO;
 
 public static class Utils
 {
@@ -171,6 +171,23 @@ public static class Utils
         }
 
         return list;
+    }
+
+    public static string ReadModAsset(string filename)
+    {
+        if (Everest.Content.TryGet(filename, out var asset))
+        {
+            return ReadModAsset(asset);
+        }
+
+        return null;
+    }
+
+    public static string ReadModAsset(ModAsset asset)
+    {
+        using var reader = new StreamReader(asset.Stream);
+
+        return reader.ReadToEnd();
     }
 
 }

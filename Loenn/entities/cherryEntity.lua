@@ -12,9 +12,10 @@ CherryEntity.fieldInformation = {
     animatedHitbox = { fieldType = "boolean", default = false },
     bigHitbox = { fieldType = "boolean", default = false },
     color = { fieldType = "color", allowXNAColors = true, default = "#ffffff" },
-    animationRate = { fieldType = "integer", default = 30 },
-    Inverted = { fieldType = "boolean", default = false }
+    animationRate = { fieldType = "integer", default = 1 },
+    Inverted = { fieldType = "boolean", default = false },
 }
+
 CherryEntity.fieldOrder = {"x","y","color","animationRate","animatedHitbox","unforgivingHitbox","bigHitbox","Inverted"}
 
 CherryEntity.texture = function(room, entity) 
@@ -28,9 +29,9 @@ CherryEntity.placements = {
         unforgivingHitbox = false,
         animatedHitbox = false,
         bigHitbox = false,
-        color =  "#ffffff",
-        animationRate =  30,
-        Inverted = false
+        color = "#ffffff",
+        animationRate = 1,
+        Inverted = false,
     }
 }
 
